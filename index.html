@@ -94,8 +94,8 @@
     </header>
     <div class="container">
         <div class="tabs">
-            <div class="tab active" onclick="openTab('info')">Info</div>
-            <div class="tab" onclick="openTab('contact')">Contact</div>
+            <div class="tab active" onclick="f_abc('info')">Info</div>
+            <div class="tab" onclick="f_abc('contact')">Contact</div>
         </div>
         <div id="info" class="info active">
             <p><strong>Name:</strong> Jeff</p>
@@ -116,16 +116,31 @@
     </div>
 
     <script>
-        function openTab(tabName) {
-            const tabs = document.querySelectorAll('.tab');
-            const contents = document.querySelectorAll('.info, .contact');
-            
-            tabs.forEach(tab => tab.classList.remove('active'));
-            contents.forEach(content => content.classList.remove('active'));
+        // Basic obfuscation for the function
+        const f_abc = (function() {
+            const hiddenLogic = {
+                't1': '.tab', 
+                't2': '.info', 
+                't3': '.contact', 
+                't4': 'active'
+            };
+            return function(z) {
+                const t = document.querySelectorAll(hiddenLogic.t1);
+                const c = document.querySelectorAll(`${hiddenLogic.t2}, ${hiddenLogic.t3}`);
+                
+                t.forEach(tab => tab.classList.remove(hiddenLogic.t4));
+                c.forEach(content => content.classList.remove(hiddenLogic.t4));
 
-            document.querySelector(`.${tabName}`).classList.add('active');
-            document.querySelector(`#${tabName}`).classList.add('active');
-        }
+                document.querySelector(`.${z}`).classList.add(hiddenLogic.t4);
+                document.querySelector(`#${z}`).classList.add(hiddenLogic.t4);
+            };
+        })();
+
+        // Obfuscated string replacement
+        (function(){
+            const e = "console.log('Tab switch function loaded')";
+            new Function(e)();
+        })();
     </script>
 </body>
 </html>
