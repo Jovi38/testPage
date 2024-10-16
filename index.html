@@ -16,6 +16,7 @@
             color: #fff;
             padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .container {
             max-width: 800px;
@@ -27,12 +28,13 @@
         }
         h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 26px;
         }
         .tabs {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            gap: 10px;
         }
         .tab {
             background: #3f51b5;
@@ -40,21 +42,29 @@
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, box-shadow 0.3s;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .tab:hover, .tab.active {
             background: #1a73e8;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .info, .contact {
             display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         .info.active, .contact.active {
             display: block;
+            opacity: 1;
         }
         p {
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 17px;
+            line-height: 1.7;
             color: #444;
+            margin: 10px 0;
         }
         p strong {
             color: #3f51b5;
@@ -62,9 +72,19 @@
         a {
             color: #1a73e8;
             text-decoration: none;
+            transition: color 0.3s;
         }
-        a:hover {
+        a:hover, a:focus {
+            color: #0d47a1;
             text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .tabs {
+                flex-direction: column;
+            }
+            .tab {
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -90,7 +110,7 @@
             <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank">sway.cloud.microsoft</a></p>
         </div>
         <div id="contact" class="contact">
-            <p><strong>Phone Number:</strong> 9999888222 </p>
+            <p><strong>Phone Number:</strong> 9999888222</p>
             <p><strong>Email:</strong> <a href="mailto:AforApple@scammer.com">AforApple@scammer.com</a></p>
         </div>
     </div>
