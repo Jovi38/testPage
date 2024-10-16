@@ -7,12 +7,13 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e8eaf6;
+            background-color: #1a237e; /* Dark Blue Background */
+            color: #fff; /* White text by default */
             margin: 0;
             padding: 0;
         }
         header {
-            background: linear-gradient(45deg, #3f51b5, #1a73e8);
+            background: linear-gradient(45deg, #1a237e, #ffeb3b); /* Blue to Yellow gradient */
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -22,6 +23,7 @@
             max-width: 800px;
             margin: 20px auto;
             background: #fff;
+            color: #000; /* Black text inside container */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -29,6 +31,7 @@
         h1 {
             margin: 0;
             font-size: 26px;
+            color: #ffeb3b; /* Yellow Heading */
         }
         .tabs {
             display: flex;
@@ -37,7 +40,7 @@
             gap: 10px;
         }
         .tab {
-            background: #3f51b5;
+            background: #1a237e; /* Blue tabs */
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
@@ -48,7 +51,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .tab:hover, .tab.active {
-            background: #1a73e8;
+            background: #ffeb3b; /* Yellow on hover or active */
+            color: #000; /* Black text when active */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .info, .contact {
@@ -63,27 +67,20 @@
         p {
             font-size: 17px;
             line-height: 1.7;
-            color: #444;
+            color: #000; /* Black text */
             margin: 10px 0;
         }
         p strong {
-            color: #3f51b5;
+            color: #1a237e; /* Dark blue strong tags */
         }
         a {
-            color: #1a73e8;
+            color: #ffeb3b; /* Yellow links */
             text-decoration: none;
             transition: color 0.3s;
         }
         a:hover, a:focus {
-            color: #0d47a1;
+            color: #f57f17; /* Darker yellow on hover */
             text-decoration: underline;
-        }
-        .malicious-link {
-            color: #f44336; /* Red for dangerous links */
-            background-color: #fff3e0; /* Light yellow for highlighting */
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-weight: bold;
         }
         @media (max-width: 600px) {
             .tabs {
@@ -108,17 +105,19 @@
             <p><strong>Name:</strong> Jeff</p>
             <p><strong>College:</strong> Apple Co.</p>
             <p><strong>Company:</strong> iProducts</p>
+            
+            <!-- Legitimate links -->
             <p><strong>Iphone 11:</strong> <a href="https://portal.azure.com" target="_blank">portal.azure.com</a></p>
             <p><strong>Iphone 12:</strong> <a href="https://login.microsoftonline.com" target="_blank">login.microsoftonline.com</a></p>
-            <p><strong>Iphone 13:</strong> <a href="https://www.airtel.in" target="_blank">airtel.in</a></p>
-            <p><strong>Iphone 14:</strong> <a href="https://techoverflow.net" target="_blank">techoverflow.net</a></p>
-            <p><strong>Iphone 15:</strong> <a href="https://chatgpt.com" target="_blank">chatgpt.com</a></p>
+
+            <!-- Potentially malicious/phishing URLs for testing -->
+            <p><strong>Iphone 13:</strong> <a href="http://malicious-example.com" target="_blank">malicious-example.com</a></p>
+            <p><strong>Iphone 14:</strong> <a href="http://phishing-test-site.com" target="_blank">phishing-test-site.com</a></p>
+            <p><strong>Iphone 15:</strong> <a href="http://unsafe-example.net" target="_blank">unsafe-example.net</a></p>
+
+            <!-- Additional links -->
             <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></p>
             <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank">sway.cloud.microsoft</a></p>
-            <!-- Malicious/Phishing URLs for testing -->
-            <p><strong>Phishing Site 1:</strong> <a class="malicious-link" href="http://phishingsite123.com" target="_blank">phishingsite123.com</a></p>
-            <p><strong>Malicious Site 2:</strong> <a class="malicious-link" href="http://malware-download.me" target="_blank">malware-download.me</a></p>
-            <p><strong>Phishing Site 3:</strong> <a class="malicious-link" href="http://banking-fraud.org" target="_blank">banking-fraud.org</a></p>
         </div>
         <div id="contact" class="contact">
             <p><strong>Phone Number:</strong> 9999888222</p>
