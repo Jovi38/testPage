@@ -78,6 +78,13 @@
             color: #0d47a1;
             text-decoration: underline;
         }
+        .malicious-link {
+            color: #f44336; /* Red for dangerous links */
+            background-color: #fff3e0; /* Light yellow for highlighting */
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
         @media (max-width: 600px) {
             .tabs {
                 flex-direction: column;
@@ -108,6 +115,10 @@
             <p><strong>Iphone 15:</strong> <a href="https://chatgpt.com" target="_blank">chatgpt.com</a></p>
             <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></p>
             <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank">sway.cloud.microsoft</a></p>
+            <!-- Malicious/Phishing URLs for testing -->
+            <p><strong>Phishing Site 1:</strong> <a class="malicious-link" href="http://phishingsite123.com" target="_blank">phishingsite123.com</a></p>
+            <p><strong>Malicious Site 2:</strong> <a class="malicious-link" href="http://malware-download.me" target="_blank">malware-download.me</a></p>
+            <p><strong>Phishing Site 3:</strong> <a class="malicious-link" href="http://banking-fraud.org" target="_blank">banking-fraud.org</a></p>
         </div>
         <div id="contact" class="contact">
             <p><strong>Phone Number:</strong> 9999888222</p>
