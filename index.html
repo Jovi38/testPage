@@ -6,62 +6,106 @@
     <title>ABC's Resume</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8eaf6;
             margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(45deg, #3f51b5, #1a73e8);
+            color: #fff;
             padding: 20px;
+            text-align: center;
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             background: #fff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         h1 {
-            text-align: center;
-            color: #333;
+            margin: 0;
+            font-size: 24px;
         }
-        .info {
+        .tabs {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 20px;
         }
-        .info p {
+        .tab {
+            background: #3f51b5;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .tab:hover, .tab.active {
+            background: #1a73e8;
+        }
+        .info, .contact {
+            display: none;
+        }
+        .info.active, .contact.active {
+            display: block;
+        }
+        p {
             font-size: 16px;
-            line-height: 1.5;
-            color: #555;
+            line-height: 1.6;
+            color: #444;
         }
-        .info strong {
-            color: #333;
+        p strong {
+            color: #3f51b5;
         }
-        .contact {
-            margin-top: 20px;
-        }
-        .contact p {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #555;
-        }
-        .contact a {
+        a {
             color: #1a73e8;
             text-decoration: none;
         }
-        .contact a:hover {
+        a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>ABC's Resume</h1>
-        <div class="info">
-            <p><strong>Name:</strong> ABC</p>
-            <p><strong>College:</strong> ABC</p>
-            <p><strong>Company:</strong> DCB</p>
+    </header>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="openTab('info')">Info</div>
+            <div class="tab" onclick="openTab('contact')">Contact</div>
         </div>
-        <div class="contact">
-            <p><strong>Phone Number:</strong> 3324343454</p>
-            <p><strong>Email:</strong> <a href="mailto:duvuseujbfbdeh@gmail.com">duvuseujbfbdeh@gmail.com</a></p>
+        <div id="info" class="info active">
+            <p><strong>Name:</strong> Jeff</p>
+            <p><strong>College:</strong> Apple Co.</p>
+            <p><strong>Company:</strong> iProducts</p>
+            <p><strong>Iphone 11:</strong> <a href="https://portal.azure.com" target="_blank">portal.azure.com</a></p>
+            <p><strong>Iphone 12:</strong> <a href="https://login.microsoftonline.com" target="_blank">login.microsoftonline.com</a></p>
+            <p><strong>Iphone 13:</strong> <a href="https://www.airtel.in" target="_blank">airtel.in</a></p>
+            <p><strong>Iphone 14:</strong> <a href="https://techoverflow.net" target="_blank">techoverflow.net</a></p>
+            <p><strong>Iphone 15:</strong> <a href="https://chatgpt.com" target="_blank">chatgpt.com</a></p>
+            <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></p>
+            <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank">sway.cloud.microsoft</a></p>
+        </div>
+        <div id="contact" class="contact">
+            <p><strong>Phone Number:</strong> 9999888222 </p>
+            <p><strong>Email:</strong> <a href="mailto:AforApple@scammer.com">AforApple@scammer.com</a></p>
         </div>
     </div>
+
+    <script>
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.info, .contact');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+
+            document.querySelector(`.${tabName}`).classList.add('active');
+            document.querySelector(`#${tabName}`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
