@@ -7,87 +7,99 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a237e; /* Dark Blue Background */
-            color: #fff; /* White text by default */
+            background-color: #0d1117; /* Darker background for modern look */
+            color: #c9d1d9; /* Light gray text for contrast */
             margin: 0;
             padding: 0;
         }
         header {
-            background: linear-gradient(45deg, #1a237e, #ffeb3b); /* Blue to Yellow gradient */
+            background: linear-gradient(45deg, #007acc, #1a73e8);
             color: #fff;
-            padding: 20px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid #ffeb3b;
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: #fff;
-            color: #000; /* Black text inside container */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            margin: 40px auto;
+            background: #161b22;
+            color: #c9d1d9;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
         h1 {
             margin: 0;
-            font-size: 26px;
-            color: #ffeb3b; /* Yellow Heading */
+            font-size: 30px;
+            color: #ffeb3b;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
         }
         .tabs {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            gap: 10px;
+            gap: 15px;
+            justify-content: space-around;
+            margin-bottom: 25px;
         }
         .tab {
-            background: #1a237e; /* Blue tabs */
+            background: linear-gradient(45deg, #007acc, #1a73e8);
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 15px 25px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background 0.3s, box-shadow 0.3s;
+            transition: all 0.4s ease;
             text-align: center;
             flex: 1;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .tab:hover, .tab.active {
-            background: #ffeb3b; /* Yellow on hover or active */
-            color: #000; /* Black text when active */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .tab:hover {
+            background: linear-gradient(45deg, #1a73e8, #007acc);
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        }
+        .tab.active {
+            background: #ffeb3b;
+            color: #0d1117;
+            box-shadow: 0 4px 12px rgba(255, 235, 59, 0.5);
         }
         .info, .contact {
             display: none;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(-20px);
         }
         .info.active, .contact.active {
             display: block;
             opacity: 1;
+            transform: translateY(0);
         }
         p {
-            font-size: 17px;
-            line-height: 1.7;
-            color: #000; /* Black text */
-            margin: 10px 0;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 15px 0;
         }
         p strong {
-            color: #1a237e; /* Dark blue strong tags */
+            color: #1a73e8;
+            font-weight: 600;
         }
         a {
-            color: #ffeb3b; /* Yellow links */
+            color: #ffeb3b;
             text-decoration: none;
-            transition: color 0.3s;
+            border-bottom: 1px dotted #ffeb3b;
+            transition: color 0.3s, border-bottom-color 0.3s;
         }
         a:hover, a:focus {
-            color: #f57f17; /* Darker yellow on hover */
-            text-decoration: underline;
+            color: #007acc;
+            border-bottom-color: #007acc;
         }
         @media (max-width: 600px) {
             .tabs {
                 flex-direction: column;
+                gap: 10px;
             }
             .tab {
-                margin-bottom: 10px;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -152,7 +164,5 @@
             new Function(e)();
         })();
     </script>
-    
-<script src="main.js"></script>
 </body>
-</html>
+</html> 
