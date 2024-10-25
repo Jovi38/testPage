@@ -20,7 +20,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             border-bottom: 2px solid #ffeb3b;
         }
-        .container {
+        .a {
             max-width: 900px;
             margin: 40px auto;
             background: #161b22;
@@ -36,13 +36,13 @@
             font-weight: bold;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
         }
-        .tabs {
+        .b {
             display: flex;
             gap: 15px;
             justify-content: space-around;
             margin-bottom: 25px;
         }
-        .tab {
+        .c {
             background: linear-gradient(45deg, #007acc, #1a73e8);
             color: #fff;
             padding: 15px 25px;
@@ -54,23 +54,23 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             outline: none;
         }
-        .tab:hover {
+        .c:hover {
             background: linear-gradient(45deg, #1a73e8, #007acc);
             transform: scale(1.05);
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
         }
-        .tab.active {
+        .c.d {
             background: #ffeb3b;
             color: #0d1117;
             box-shadow: 0 4px 12px rgba(255, 235, 59, 0.5);
         }
-        .info, .contact {
+        .e, .f {
             display: none;
             opacity: 0;
             transition: opacity 0.5s ease, transform 0.5s ease;
             transform: translateY(-20px);
         }
-        .info.active, .contact.active {
+        .e.d, .f.d {
             display: block;
             opacity: 1;
             transform: translateY(0);
@@ -95,11 +95,11 @@
             border-bottom-color: #007acc;
         }
         @media (max-width: 600px) {
-            .tabs {
+            .b {
                 flex-direction: column;
                 gap: 10px;
             }
-            .tab {
+            .c {
                 padding: 10px 20px;
             }
         }
@@ -109,12 +109,12 @@
     <header>
         <h1>ABC's Resume</h1>
     </header>
-    <div class="container">
-        <div class="tabs">
-            <div class="tab active" role="button" tabindex="0" aria-label="Info tab" onclick="f_abc('info')">Info</div>
-            <div class="tab" role="button" tabindex="0" aria-label="Contact tab" onclick="f_abc('contact')">Contact</div>
+    <div class="a">
+        <div class="b">
+            <div class="c d" role="button" tabindex="0" aria-label="Info tab" onclick="g('e')">Info</div>
+            <div class="c" role="button" tabindex="0" aria-label="Contact tab" onclick="g('f')">Contact</div>
         </div>
-        <div id="info" class="info active">
+        <div id="e" class="e d">
             <p><strong>Name:</strong> Jeff</p>
             <p><strong>College:</strong> Apple Co.</p>
             <p><strong>Company:</strong> iProducts</p>
@@ -132,39 +132,37 @@
             <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a></p>
             <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank" rel="noopener noreferrer">sway.cloud.microsoft</a></p>
         </div>
-        <div id="contact" class="contact">
+        <div id="f" class="f">
             <p><strong>Phone Number:</strong> 9999888222</p>
             <p><strong>Email:</strong> <a href="mailto:AforApple@scammer.com">AforApple@scammer.com</a></p>
         </div>
     </div>
 
     <script>
-        // Basic function for tab switching with keyboard support
-        const f_abc = (function() {
-            const hiddenLogic = {
-                't1': '.tab', 
-                't2': '.info', 
-                't3': '.contact', 
-                't4': 'active'
+        const g = (() => {
+            const h = {
+                'x': '.c',
+                'y': '.e',
+                'z': '.f',
+                'w': 'd'
             };
-            return function(z) {
-                const t = document.querySelectorAll(hiddenLogic.t1);
-                const c = document.querySelectorAll(`${hiddenLogic.t2}, ${hiddenLogic.t3}`);
+            return z => {
+                const i = document.querySelectorAll(h.x);
+                const j = document.querySelectorAll(`${h.y}, ${h.z}`);
                 
-                t.forEach(tab => tab.classList.remove(hiddenLogic.t4));
-                c.forEach(content => content.classList.remove(hiddenLogic.t4));
+                i.forEach(k => k.classList.remove(h.w));
+                j.forEach(l => l.classList.remove(h.w));
 
-                document.querySelector(`.${z}`).classList.add(hiddenLogic.t4);
-                document.querySelector(`#${z}`).classList.add(hiddenLogic.t4);
+                document.querySelector(`.${z}`).classList.add(h.w);
+                document.querySelector(`#${z}`).classList.add(h.w);
             };
         })();
 
-        // Add keyboard accessibility
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('keypress', function(e) {
+        document.querySelectorAll('.c').forEach(m => {
+            m.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    tab.click();
+                    m.click();
                 }
             });
         });
