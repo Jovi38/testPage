@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0d1117; /* Darker background for modern look */
-            color: #c9d1d9; /* Light gray text for contrast */
+            background-color: #0d1117;
+            color: #c9d1d9;
             margin: 0;
             padding: 0;
         }
@@ -52,6 +52,7 @@
             text-align: center;
             flex: 1;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            outline: none;
         }
         .tab:hover {
             background: linear-gradient(45deg, #1a73e8, #007acc);
@@ -110,8 +111,8 @@
     </header>
     <div class="container">
         <div class="tabs">
-            <div class="tab active" onclick="f_abc('info')">Info</div>
-            <div class="tab" onclick="f_abc('contact')">Contact</div>
+            <div class="tab active" role="button" tabindex="0" aria-label="Info tab" onclick="f_abc('info')">Info</div>
+            <div class="tab" role="button" tabindex="0" aria-label="Contact tab" onclick="f_abc('contact')">Contact</div>
         </div>
         <div id="info" class="info active">
             <p><strong>Name:</strong> Jeff</p>
@@ -119,17 +120,17 @@
             <p><strong>Company:</strong> iProducts</p>
             
             <!-- Legitimate links -->
-            <p><strong>Iphone 11:</strong> <a href="https://portal.azure.com" target="_blank">portal.azure.com</a></p>
-            <p><strong>Iphone 12:</strong> <a href="https://login.microsoftonline.com" target="_blank">login.microsoftonline.com</a></p>
+            <p><strong>Iphone 11:</strong> <a href="https://portal.azure.com" target="_blank" rel="noopener noreferrer">portal.azure.com</a></p>
+            <p><strong>Iphone 12:</strong> <a href="https://login.microsoftonline.com" target="_blank" rel="noopener noreferrer">login.microsoftonline.com</a></p>
 
             <!-- Potentially malicious/phishing URLs for testing -->
-            <p><strong>Iphone 13:</strong> <a href="http://malicious-example.com" target="_blank">malicious-example.com</a></p>
-            <p><strong>Iphone 14:</strong> <a href="http://phishing-test-site.com" target="_blank">phishing-test-site.com</a></p>
-            <p><strong>Iphone 15:</strong> <a href="http://unsafe-example.net" target="_blank">unsafe-example.net</a></p>
+            <p><strong>Iphone 13:</strong> <a href="http://malicious-example.com" target="_blank" rel="noopener noreferrer">malicious-example.com</a></p>
+            <p><strong>Iphone 14:</strong> <a href="http://phishing-test-site.com" target="_blank" rel="noopener noreferrer">phishing-test-site.com</a></p>
+            <p><strong>Iphone 15:</strong> <a href="http://unsafe-example.net" target="_blank" rel="noopener noreferrer">unsafe-example.net</a></p>
 
             <!-- Additional links -->
-            <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></p>
-            <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank">sway.cloud.microsoft</a></p>
+            <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a></p>
+            <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank" rel="noopener noreferrer">sway.cloud.microsoft</a></p>
         </div>
         <div id="contact" class="contact">
             <p><strong>Phone Number:</strong> 9999888222</p>
@@ -138,7 +139,7 @@
     </div>
 
     <script>
-        // Basic obfuscation for the function
+        // Basic function for tab switching with keyboard support
         const f_abc = (function() {
             const hiddenLogic = {
                 't1': '.tab', 
@@ -158,11 +159,15 @@
             };
         })();
 
-        // Obfuscated string replacement
-        (function(){
-            const e = "console.log('Tab switch function loaded')";
-            new Function(e)();
-        })();
+        // Add keyboard accessibility
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    tab.click();
+                }
+            });
+        });
     </script>
 </body>
-</html> 
+</html>
