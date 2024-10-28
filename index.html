@@ -6,122 +6,157 @@
     <title>ABC's Resume</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
             margin: 0;
             padding: 0;
-            display: flex;
         }
-        .sidebar {
-            background-color: #1e1e2d;
+        header {
+            background: linear-gradient(45deg, #007acc, #1a73e8);
             color: #fff;
-            width: 250px;
-            height: 100vh;
-            padding: 20px;
-            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid #ffeb3b;
         }
-        .sidebar h1 {
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: #ffca28;
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #161b22;
+            color: #c9d1d9;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
-        .sidebar .nav-link {
-            display: block;
-            color: #ddd;
-            margin: 15px 0;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
+        h1 {
+            margin: 0;
+            font-size: 30px;
+            color: #ffeb3b;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
         }
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
-            background-color: #ffca28;
-            color: #1e1e2d;
+        .tabs {
+            display: flex;
+            gap: 15px;
+            justify-content: space-around;
+            margin-bottom: 25px;
         }
-        .content {
+        .tab {
+            background: linear-gradient(45deg, #007acc, #1a73e8);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-align: center;
             flex: 1;
-            padding: 40px;
-            background-color: #fff;
-            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .content h2 {
-            font-size: 26px;
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ffca28;
-            padding-bottom: 10px;
+        .tab:hover {
+            background: linear-gradient(45deg, #1a73e8, #007acc);
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
         }
-        .content p {
+        .tab.active {
+            background: #ffeb3b;
+            color: #0d1117;
+            box-shadow: 0 4px 12px rgba(255, 235, 59, 0.5);
+        }
+        .info, .contact {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(-20px);
+        }
+        .info.active, .contact.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        p {
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 15px 0;
         }
-        .content p strong {
-            color: #1e88e5;
+        p strong {
+            color: #1a73e8;
+            font-weight: 600;
         }
-        .content a {
-            color: #1e88e5;
+        a {
+            color: #ffeb3b;
             text-decoration: none;
-            border-bottom: 1px dotted #1e88e5;
+            border-bottom: 1px dotted #ffeb3b;
             transition: color 0.3s, border-bottom-color 0.3s;
         }
-        .content a:hover {
-            color: #ffca28;
-            border-bottom-color: #ffca28;
+        a:hover, a:focus {
+            color: #007acc;
+            border-bottom-color: #007acc;
         }
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                box-shadow: none;
+        @media (max-width: 600px) {
+            .tabs {
+                flex-direction: column;
+                gap: 10px;
             }
-            .content {
-                padding: 20px;
+            .tab {
+                padding: 10px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="sidebar">
+    <header>
         <h1>ABC's Resume</h1>
-        <a href="#" class="nav-link active" onclick="switchTab('info')">Info</a>
-        <a href="#" class="nav-link" onclick="switchTab('contact')">Contact</a>
-    </div>
-    <div class="content">
-        <div id="info" class="tab-content">
-            <h2>Personal Information</h2>
-            <p><strong>Name:</strong> Jeff</p>
-            <p><strong>College:</strong> Apple Co.</p>
+    </header>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="f_abc('info')">Info</div>
+            <div class="tab" onclick="f_abc('contact')">Contact</div>
+        </div>
+        <div id="info" class="info active">
+            <p><strong>Name:</strong> Joe</p>
+            <p><strong>College:</strong> Orange Co.</p>
             <p><strong>Company:</strong> iProducts</p>
             
             <!-- Legitimate links -->
-            <p><strong>Iphone 11:</strong> <a href="https://portal.azure.com" target="_blank" rel="noopener noreferrer">portal.azure.com</a></p>
-            <p><strong>Iphone 12:</strong> <a href="https://login.microsoftonline.com" target="_blank" rel="noopener noreferrer">login.microsoftonline.com</a></p>
+            <p><strong>Iphone 11:</strong> <a href="https://portal.azure.com" target="_blank">portal.azure.com</a></p>
+            <p><strong>Iphone 12:</strong> <a href="https://login.microsoftonline.com" target="_blank">login.microsoftonline.com</a></p>
 
             <!-- Potentially malicious/phishing URLs for testing -->
-            <p><strong>Iphone 13:</strong> <a href="http://malicious-example.com" target="_blank" rel="noopener noreferrer">malicious-example.com</a></p>
-            <p><strong>Iphone 14:</strong> <a href="http://phishing-test-site.com" target="_blank" rel="noopener noreferrer">phishing-test-site.com</a></p>
-            <p><strong>Iphone 15:</strong> <a href="http://unsafe-example.net" target="_blank" rel="noopener noreferrer">unsafe-example.net</a></p>
+            <p><strong>Iphone 13:</strong> <a href="http://malicious-example.com" target="_blank">malicious-example.com</a></p>
+            <p><strong>Iphone 14:</strong> <a href="http://phishing-test-site.com" target="_blank">phishing-test-site.com</a></p>
+            <p><strong>Iphone 15:</strong> <a href="http://unsafe-example.net" target="_blank">unsafe-example.net</a></p>
 
             <!-- Additional links -->
-            <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a></p>
-            <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank" rel="noopener noreferrer">sway.cloud.microsoft</a></p>
+            <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></p>
+            <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank">sway.cloud.microsoft</a></p>
         </div>
-        <div id="contact" class="tab-content" style="display: none;">
-            <h2>Contact Information</h2>
+        <div id="contact" class="contact">
             <p><strong>Phone Number:</strong> 9999888222</p>
             <p><strong>Email:</strong> <a href="mailto:AforApple@scammer.com">AforApple@scammer.com</a></p>
         </div>
     </div>
 
     <script>
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
-            document.getElementById(tab).style.display = 'block';
-            
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            document.querySelector(`.nav-link[onclick="switchTab('${tab}')"]`).classList.add('active');
-        }
+        const f_abc = (function() {
+            const hiddenLogic = {
+                't1': '.tab', 
+                't2': '.info', 
+                't3': '.contact', 
+                't4': 'active'
+            };
+            return function(z) {
+                const t = document.querySelectorAll(hiddenLogic.t1);
+                const c = document.querySelectorAll(`${hiddenLogic.t2}, ${hiddenLogic.t3}`);
+                
+                t.forEach(tab => tab.classList.remove(hiddenLogic.t4));
+                c.forEach(content => content.classList.remove(hiddenLogic.t4));
+
+                document.querySelector(`.${z}`).classList.add(hiddenLogic.t4);
+                document.querySelector(`#${z}`).classList.add(hiddenLogic.t4);
+            };
+        })();
     </script>
 </body>
 </html>
+
