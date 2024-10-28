@@ -6,115 +6,90 @@
     <title>ABC's Resume</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
-        }
-        header {
-            background: linear-gradient(45deg, #007acc, #1a73e8);
-            color: #fff;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            border-bottom: 2px solid #ffeb3b;
-        }
-        .a {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #161b22;
-            color: #c9d1d9;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-        }
-        h1 {
-            margin: 0;
-            font-size: 30px;
-            color: #ffeb3b;
-            font-weight: bold;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-        }
-        .b {
             display: flex;
-            gap: 15px;
-            justify-content: space-around;
-            margin-bottom: 25px;
         }
-        .c {
-            background: linear-gradient(45deg, #007acc, #1a73e8);
+        .sidebar {
+            background-color: #1e1e2d;
             color: #fff;
-            padding: 15px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-align: center;
-            flex: 1;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            outline: none;
+            width: 250px;
+            height: 100vh;
+            padding: 20px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
         }
-        .c:hover {
-            background: linear-gradient(45deg, #1a73e8, #007acc);
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        .sidebar h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #ffca28;
         }
-        .c.d {
-            background: #ffeb3b;
-            color: #0d1117;
-            box-shadow: 0 4px 12px rgba(255, 235, 59, 0.5);
-        }
-        .e, .f {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            transform: translateY(-20px);
-        }
-        .e.d, .f.d {
+        .sidebar .nav-link {
             display: block;
-            opacity: 1;
-            transform: translateY(0);
+            color: #ddd;
+            margin: 15px 0;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
         }
-        p {
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: #ffca28;
+            color: #1e1e2d;
+        }
+        .content {
+            flex: 1;
+            padding: 40px;
+            background-color: #fff;
+            overflow-y: auto;
+        }
+        .content h2 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffca28;
+            padding-bottom: 10px;
+        }
+        .content p {
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 1.6;
             margin: 15px 0;
         }
-        p strong {
-            color: #1a73e8;
-            font-weight: 600;
+        .content p strong {
+            color: #1e88e5;
         }
-        a {
-            color: #ffeb3b;
+        .content a {
+            color: #1e88e5;
             text-decoration: none;
-            border-bottom: 1px dotted #ffeb3b;
+            border-bottom: 1px dotted #1e88e5;
             transition: color 0.3s, border-bottom-color 0.3s;
         }
-        a:hover, a:focus {
-            color: #007acc;
-            border-bottom-color: #007acc;
+        .content a:hover {
+            color: #ffca28;
+            border-bottom-color: #ffca28;
         }
-        @media (max-width: 600px) {
-            .b {
-                flex-direction: column;
-                gap: 10px;
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                box-shadow: none;
             }
-            .c {
-                padding: 10px 20px;
+            .content {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="sidebar">
         <h1>ABC's Resume</h1>
-    </header>
-    <div class="a">
-        <div class="b">
-            <div class="c d" role="button" tabindex="0" aria-label="Info tab" onclick="g('e')">Info</div>
-            <div class="c" role="button" tabindex="0" aria-label="Contact tab" onclick="g('f')">Contact</div>
-        </div>
-        <div id="e" class="e d">
+        <a href="#" class="nav-link active" onclick="switchTab('info')">Info</a>
+        <a href="#" class="nav-link" onclick="switchTab('contact')">Contact</a>
+    </div>
+    <div class="content">
+        <div id="info" class="tab-content">
+            <h2>Personal Information</h2>
             <p><strong>Name:</strong> Jeff</p>
             <p><strong>College:</strong> Apple Co.</p>
             <p><strong>Company:</strong> iProducts</p>
@@ -132,40 +107,21 @@
             <p><strong>Iphone 16:</strong> <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a></p>
             <p><strong>Iphone 17:</strong> <a href="https://sway.cloud.microsoft" target="_blank" rel="noopener noreferrer">sway.cloud.microsoft</a></p>
         </div>
-        <div id="f" class="f">
+        <div id="contact" class="tab-content" style="display: none;">
+            <h2>Contact Information</h2>
             <p><strong>Phone Number:</strong> 9999888222</p>
             <p><strong>Email:</strong> <a href="mailto:AforApple@scammer.com">AforApple@scammer.com</a></p>
         </div>
     </div>
 
     <script>
-        const g = (() => {
-            const h = {
-                'x': '.c',
-                'y': '.e',
-                'z': '.f',
-                'w': 'd'
-            };
-            return z => {
-                const i = document.querySelectorAll(h.x);
-                const j = document.querySelectorAll(`${h.y}, ${h.z}`);
-                
-                i.forEach(k => k.classList.remove(h.w));
-                j.forEach(l => l.classList.remove(h.w));
-
-                document.querySelector(`.${z}`).classList.add(h.w);
-                document.querySelector(`#${z}`).classList.add(h.w);
-            };
-        })();
-
-        document.querySelectorAll('.c').forEach(m => {
-            m.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    m.click();
-                }
-            });
-        });
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
+            document.getElementById(tab).style.display = 'block';
+            
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelector(`.nav-link[onclick="switchTab('${tab}')"]`).classList.add('active');
+        }
     </script>
 </body>
 </html>
